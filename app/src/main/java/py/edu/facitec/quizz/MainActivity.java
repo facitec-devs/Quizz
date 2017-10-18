@@ -67,13 +67,13 @@ public class MainActivity extends AppCompatActivity {
         }else{
             if(radioButtonA.isChecked() && pregunta.getOpciones().get(0).isCorrecto()){
                 score++;
-                scoreImageView.get(position-1).setImageResource(android.R.drawable.checkbox_on_background);
+                scoreImageView.get(position-1).setImageResource(android.R.drawable.presence_online);
             }else if(radioButtonB.isChecked() && pregunta.getOpciones().get(1).isCorrecto()){
                 score++;
-                scoreImageView.get(position-1).setImageResource(android.R.drawable.checkbox_on_background);
+                scoreImageView.get(position-1).setImageResource(android.R.drawable.presence_online);
             }else if(radioButtonC.isChecked() && pregunta.getOpciones().get(2).isCorrecto()){
                 score++;
-                scoreImageView.get(position-1).setImageResource(android.R.drawable.checkbox_on_background);
+                scoreImageView.get(position-1).setImageResource(android.R.drawable.presence_online);
             }
             else{
                 scoreImageView.get(position-1).setImageResource(android.R.drawable.ic_delete);
