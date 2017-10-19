@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Quizz</string>
-    <string name="title_activity_login">Login</string>
-    <item name="visible" type="id" />
-    <item name="masked" type="id" />
+    <string name="acceder">Acceder</string>
+    <string name="registrar">Registrar</string>
+    <string name="email">Escriba su correo electrónico</string>
+    <string name="password">Escriba su contraseña</string>
+    <string name="error_email">Escriba un email valido</string>
+    <string name="error_password">Escriba una contraseña</string>
+    <string name="error_seleccion">Seleccione una opcion</string>
 </resources>

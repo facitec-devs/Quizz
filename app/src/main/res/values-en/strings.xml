@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Quizz</string>
+    <string name="acceder">Sign in</string>
+    <string name="email">Input you Email</string>
+    <string name="password">Input you Pasword</string>
+    <string name="registrar">Sign up</string>
+    <string name="error_email">Write a valid email</string>
+    <string name="error_password">Write a valid password</string>
+</resources>

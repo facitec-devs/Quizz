@@ -1,47 +1,42 @@
 package py.edu.facitec.quizz;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit.Callback;
+import retrofit.RestAdapter;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 
 public class PreguntaDataProvider {
 
-    public static Pregunta getPergunta(){
-        Pregunta p = new Pregunta();
-                p.setTexto("Cuál es el color del Sol?");
-                p.setId(0);
-        List<Opciones> opciones = new ArrayList<>();
-        opciones.add(new Opciones(0,"Azul",false));
-        opciones.add(new Opciones(0,"Rojo",false));
-        opciones.add(new Opciones(0,"Amarillo",true));
-                p.setOpciones(opciones);
-        return p;
-    }
 
-    public static List<Pregunta> getPreguntas(){
-        List<Pregunta> preguntas = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            Pregunta p = new Pregunta();
-            p.setTexto("Cuál es el color del Sol?");
-            p.setId(0);
-            List<Opciones> opciones = new ArrayList<>();
-            opciones.add(new Opciones(0,"Azul",false));
-            opciones.add(new Opciones(0,"Rojo",false));
-            opciones.add(new Opciones(0,"Amarillo",true));
-            p.setOpciones(opciones);
-            preguntas.add(p);
 
-            Pregunta p2 = new Pregunta();
-            p2.setTexto("Cuál es la temperatura asociada al color rojo?");
-            p2.setId(0);
-            List<Opciones> opciones2 = new ArrayList<>();
-            opciones2.add(new Opciones(0,"4500 C",true));
-            opciones2.add(new Opciones(0,"5500 C",false));
-            opciones2.add(new Opciones(0,"6500 C",false));
-            p2.setOpciones(opciones2);
-            preguntas.add(p2);
-        }
-        return preguntas;
+
+    public static void getPreguntas(ActivityViewManager view){
+        final ActivityViewManager mview = view;
+        RestAdapter restAdapter = new RestAdapter
+                                        .Builder()
+                                        .setEndpoint("http://quizz-web.herokuapp.com/")
+                                        .build();
+
+        PreguntaService service = restAdapter.create(PreguntaService.class);
+
+        service.getPreguntas(new Callback<List<Pregunta>>() {
+            @Override
+            public void success(List<Pregunta> preguntas, Response response) {
+                Log.i("RESULT",preguntas.toString());
+                mview.onResultSuccess(preguntas);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.e("RESULT",error.getLocalizedMessage());
+            }
+        });
     }
 
 }
