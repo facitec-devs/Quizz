@@ -26,11 +26,11 @@ public class LoginActivity extends AppCompatActivity {
         String email = emailEditText.getText().toString();
 
         if(email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            emailEditText.setError("Escriba un email valido");
+            emailEditText.setError(getString(R.string.error_email));
             return;
         }
         if(passwordEditText.getText().toString().isEmpty()){
-            passwordEditText.setError("Escriba su password");
+            passwordEditText.setError(getString(R.string.error_password));
             return;
         }
 
